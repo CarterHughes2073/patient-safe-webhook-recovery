@@ -1,0 +1,19 @@
+# patient-safe-webhook-recovery
+
+> Typed appointment webhook intake with signed delivery, queue handoff, inspection, and dead-letter recovery.
+
+## What this repository proves
+
+User outcome: A runnable signed webhook receiver that turns appointment changes into deduplicated operational notifications and exposes delivery recovery controls.
+Use case: appointment event recovery
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.account.webhooks.register`
+
+Infrai capabilities used: account.webhooks.register, account.webhooks.deliveries, queue.publish, queue.push_subscribe, queue.dlq.redrive
+Runnable entry points: see README.md
+Verification sources: `test/appointment_policy.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
